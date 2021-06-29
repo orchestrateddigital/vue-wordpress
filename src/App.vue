@@ -1,9 +1,10 @@
 <template>
-  <div 
+  <div
     id="vue-wordpress-app"
     class="container"
     @click="handleClicks"
   >
+
     <div
       class="site-branding"
       @click="$router.push('/')"
@@ -16,20 +17,29 @@
       />
       <span>{{ site.name }}</span>
     </div>
+
     <nav-menu
-      class="main-menu" 
+      class="main-menu"
       name="main"
     />
-    <transition
-      name="fade"
-      mode="out-in"
-      @after-leave="updateScroll"
+
+    <router-view
+        :key="$route.path"
+        v-slot="slotProps"
     >
-      <router-view :key="$route.path" />
-    </transition>
+      <transition
+          name="fade"
+          mode="out-in"
+          @after-leave="updateScroll"
+      >
+        <component :is="slotProps.Component" />
+      </transition>
+    </router-view>
+
     <transition name="fade">
       <site-loading v-if="loading" />
     </transition>
+
   </div>
 </template>
 
@@ -149,11 +159,11 @@ export default {
 }
 
 .fade-enter-to,
-.fade-leave {
+.fade-leave-from {
   opacity: 1;
 }
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
