@@ -1,17 +1,22 @@
 const path = require('path')
 const webpack = require('webpack')
-const VueLoaderPlugin  = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/app.js'),
   mode: 'development',
   devServer: {
     hot: true,
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    headers: { "Access-Control-Allow-Origin": "*" },
+    port: 2001,
+    https: true,
+    disableHostCheck: true,
+    publicPath: '',
+    host: 'localhost',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'https://localhost:2001/',
     filename: 'vue-wordpress.js'
   },
   module: {
@@ -19,11 +24,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -40,7 +40,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      vue: "@vue/runtime-dom"
     },
     extensions: ['*', '.js', '.vue', '.json']
   }
