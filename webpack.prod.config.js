@@ -1,6 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
-const VueLoaderPlugin  = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require("vue-loader");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
@@ -8,6 +7,7 @@ module.exports = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'vue-wordpress.js'
   },
   module: {
@@ -17,14 +17,9 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'vue-style-loader',
           'css-loader'
         ]
       }
@@ -38,7 +33,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      vue: "@vue/runtime-dom"
     },
     extensions: ['*', '.js', '.vue', '.json']
   }
