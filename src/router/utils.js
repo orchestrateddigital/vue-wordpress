@@ -18,7 +18,13 @@ function pageFromPath(path) {
   }
 }
 
+function slugFromPath(path) {
+  path = path.split('/').filter(s => s).pop()
+  return path;
+}
+
 export {
   categorySlugFromParams,
-  pageFromPath
+  pageFromPath,
+  slugFromPath
 }
