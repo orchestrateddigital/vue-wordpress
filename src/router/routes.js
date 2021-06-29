@@ -1,12 +1,12 @@
 // Route components
-import Home from '@/components/Home'
-import NotFound from '@/components/404'
-import AuthorArchive from '@/components/AuthorArchive'
-import DateArchive from '@/components/DateArchive'
-import CategoryArchive from '@/components/CategoryArchive'
-import TagArchive from '@/components/TagArchive'
-import Single from '@/components/Single'
-import Page from '@/components/Page'
+const Home = () => import(/* webpackChunkName: "Home" */ '@/components/Home')
+const NotFound = () => import(/* webpackChunkName: "NotFound" */ '@/components/404');
+const AuthorArchive = () => import(/* webpackChunkName: "AuthorArchive" */ '@/components/AuthorArchive');
+const DateArchive = () => import(/* webpackChunkName: "DateArchive" */ '@/components/DateArchive');
+const CategoryArchive = () => import(/* webpackChunkName: "CategoryArchive" */ '@/components/CategoryArchive');
+const TagArchive = () => import(/* webpackChunkName: "TagArchive" */ '@/components/TagArchive');
+const Single = () => import(/* webpackChunkName: "Single" */ '@/components/Single');
+const Page = () => import(/* webpackChunkName: "Page" */ '@/components/Page');
 // Route paths as formatted in WP permalink settings
 import paths from './paths'
 // Route composition utilities
