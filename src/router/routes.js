@@ -12,7 +12,8 @@ import paths from './paths'
 // Route composition utilities
 import {
   categorySlugFromParams,
-  pageFromPath
+  pageFromPath,
+  slugFromPath,
 } from './utils'
 
 
@@ -83,6 +84,6 @@ export default [
     path: '/:slugs+',
     component: Page,
     name: 'Page',
-    props: route => ({ slug: route.params.slugs.split('/').filter(s => s).pop() })
+    props: route => ({ slug: slugFromPath(route.path)})
   }
 ].filter(route => route) // Removes empty route objects
