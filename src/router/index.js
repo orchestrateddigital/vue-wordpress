@@ -7,7 +7,6 @@ const { url } = __VUE_WORDPRESS__.routing
 if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual'
 
 export default createRouter({
-  // base: url.replace(window.location.origin, ''),
   history: createWebHistory(url.replace(window.location.origin, '')),
   routes: routes
 })
