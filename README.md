@@ -3,6 +3,8 @@
 
 > A Wordpress starter theme built using the WP REST API and Vue.js. Optimized for SEO, performance, and ease of development.
 
+*Originally created by [Bucky355](https://github.com/bucky355/vue-wordpress), but since he left the boat, i updated it to the latest versions aka. vue 3 (including vuex & vue-router) and webpack 5.*
+
 *This theme is intended to be used as a foundation for creating sites that function as a single-page application (SPA) on the front-end, while using Wordpress and the WP REST API to manage content and fetch data.*
 
 **Check out [a demo of the theme](http://vue-wordpress-demo.bshiluk.com)**
