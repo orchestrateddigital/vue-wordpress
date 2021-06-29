@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-cli serve --config webpack.dev.config.js",
-    "build": "webpack-cli --config webpack.dev.config.js"
+    "build": "webpack-cli --config webpack.prod.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
