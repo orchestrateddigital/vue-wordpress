@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 export default {
   ADD_ITEM(state, { type, item }) {
     if (item && type && ! state[type].hasOwnProperty(item.id)) {
